@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="script.js"></script>
+	<style type="text/css">
+		#progress {
+			height: 40px;
+			background-color: red;
+			border-radius: 20px;
+			margin: 5px;
+		}
+		#progress-border {
+			height: 50px;
+			width: 370px;
+			border-radius: 25px;
+			border: solid 1px green;
+		}
+		svg {
+    		height: 200px;
+    		width: 200px;
+		}
+	</style>
+</head>
+<body>
+	<div id="progress-border">
+		<div id="progress"></div>
+	</div>
+	<svg>
+		<path id="arc1" fill="none" stroke="#446688" stroke-width="20" />
+  	</svg>
+
+	<input type="text" id="percent" onchange="progress.setValue(this.value);">
+	
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>
