@@ -1,0 +1,86 @@
+#wrapper {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+}
+
+@media (min-width: 420px) {
+	#wrapper {
+		flex-direction: row;
+	}
+}
+
+.section {
+	margin: auto;
+	width: 250px;
+	height: 250px;
+	display: flex;
+	justify-content: space-around;
+	flex-direction: column;
+}
+
+.input-wrap {
+	display: flex;
+	justify-content: center;
+	flex-direction: row;
+}
+
+input, label {
+	width: 40px;
+	text-align: right;
+	margin-top: auto;
+	margin: auto 0px auto 10px;
+}
+
+svg {
+	margin: auto;
+	height: 180px;
+	width: 180px;
+}
+
+[animated = "yes"] {
+	animation: rotate 3s infinite linear;
+	transform-origin: center;
+}
+
+@keyframes rotate {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* Switch */
+.switch-border {
+	width: 50px;
+	height: 30px;
+	background-color: #333333;
+	border-radius: 20px;
+	border: solid 2px #333333;
+	animation: switch-border 1s reverse ease;
+	animation-fill-mode: forwards;
+}
+
+.switch-border[enabled = "true"] {
+	background-color: #44ff44;
+	border-color: #44ff44;
+}
+
+.switch-slider {
+	width: 30px;
+	height: 30px;
+	border-radius: 20px;
+	background-color: #999999;
+	animation: switch-slider 1s reverse ease;
+	animation-fill-mode: forwards;
+}
+
+.switch-border[enabled = "true"] > .switch-slider {
+	transform: translateX(20px);
+	background-color: #ffffff;
+}
+
+
+
+
+
