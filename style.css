@@ -3,12 +3,18 @@
 	width: 100%;
 	display: flex;
 	justify-content: space-around;
-	flex-direction: column;
+	/*flex-direction: column;*/
 }
 
-@media (orientation: landscape) {
+@media screen and (orientation: landscape) {
 	#wrapper {
 		flex-direction: row;
+	}
+}
+
+@media screen and (orientation: portrait) {
+	#wrapper {
+		flex-direction: column;
 	}
 }
 
