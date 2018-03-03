@@ -6,7 +6,7 @@
 	flex-direction: column;
 }
 
-@media (min-width: 420px) {
+@media handheld and (orientation: landscape) {
 	#wrapper {
 		flex-direction: row;
 	}
