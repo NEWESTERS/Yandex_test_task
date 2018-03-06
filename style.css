@@ -26,7 +26,7 @@
 	justify-content: space-around;
 	flex-direction: column;
 }
-
+/*
 .canvas-section {
 	height: 400px;
 }
@@ -34,7 +34,7 @@
 .controls-section{
 	height: 200px;
 }
-
+*/
 .input-wrap {
 	margin: 5px;
 	display: flex;
