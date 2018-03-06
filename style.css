@@ -69,13 +69,13 @@ input[type = "text"] {
 
 svg {
 	margin: auto;
-	height: 400px;
-	width: 400px;
+	height: 300px;
+	width: 300px;
 }
 
-[animated = "yes"] {
+#progress {
 	animation: rotate 3s infinite linear;
-	transform-origin: center;
+	transform-origin: center;	
 }
 
 @keyframes rotate {
@@ -124,14 +124,18 @@ td {
 }
 
 circle {
-	stroke-dasharray: 550 0;
-  	animation: dasharray 5s infinite alternate;
+	fill: none;
+	stroke: #446688;
+	stroke-width: 10;
+	transition: stroke-dasharray 0.5s ease-out;
+	/*stroke-dasharray: 100 360;*/
+  	/*animation: dasharray 5s infinite alternate;*/
 }
 
 @keyframes dasharray {
-  100% {
-    stroke-dasharray: 0 500;
-  }
+  	100% {
+   		stroke-dasharray: 0 500;
+  	}
 }
 
 

@@ -1,51 +1,3 @@
-function polarToCartesian( centerX, centerY, radius, angleInDegrees ) {
-	var angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
-
-	return {
-    	x: centerX + (radius * Math.cos(angleInRadians)),
-    	y: centerY + (radius * Math.sin(angleInRadians))
-  	};
-}
-
-function describeArc( x, y, radius, startAngle, endAngle ) {
-	var start = polarToCartesian(x, y, radius, endAngle);
-    var end = polarToCartesian(x, y, radius, startAngle);
-
-    var largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
-
-    var d = [
-        "M", start.x, start.y, 
-        "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y
-    ].join(" ");
-
-    return d;       
-}
-
-function animatedDraw( begin, end ) {
-	var start = Date.now(); // сохранить время начала
-
-	var timer = setInterval(function() {
-	  	// вычислить сколько времени прошло с начала анимации
-		var timePassed =  Date.now() - start;
-
-	 	if (timePassed > end * 5) {
-	    	clearInterval(timer); // конец через 2 секунды
-	    	return;
-	  	}
-
-	  	// рисует состояние анимации, соответствующее времени timePassed
-	  	draw(timePassed);
-
-	}, 20);
-
-	// в то время как timePassed идёт от 0 до 2000
-	// left принимает значения от 0 до 400px
-	function draw( timePassed ) {
-	  	var arc = describeArc(200, 200, 150, 0, timePassed / 5);
-	  	document.getElementById("progress").setAttribute("d", arc);
-	}
-}
-
 function draw( degree ) {
 	  	var arc = describeArc(200, 200, 150, 0, degree);
 	  	document.getElementById("progress").setAttribute("d", arc);
@@ -61,14 +13,32 @@ function Progress ( link ) {
 	};
 
 	this.setMod = function( property, value ){
-		element.setAttribute(property, value);
+		//element.setAttribute(property, value);
+
+		switch(property) {
+		 	case 'animated':
+		 		if (value == 'yes') {
+					element.style.webkitAnimationPlayState = 'running';
+				} else {
+					element.style.webkitAnimationPlayState = 'paused';
+				}
+		    	break;
+
+		  	case 'hidden':
+		  		if (value == 'yes') {
+					element.setAttribute('display', 'none');
+				} else {
+					element.setAttribute('display', '');
+				}
+		    	break;
+		}
 	};
 
 	this.updateProgress = function ( ) {
-		var val = 360 * (this.value / 100)
-		var prev_val = 360 * (this.prev_value / 100)
+		var length = 2 * Math.PI * 50;
+		var val = length * (this.value / 100);
 		//animatedDraw(prev_val, val);
-		draw(val);
+		element.setAttribute('stroke-dasharray', val + ' ' + length);
 	};
 
 	this.hide = function ( is_hide ) {
@@ -104,9 +74,9 @@ window.onload = function ( ) {
 	hide_switch.onclick = function() {
 		switchOnclick(this)
 		if(this.getAttribute('enabled') == 'true') {
-			progress.hide(true);
+			progress.setMod('hidden', 'yes');
 		} else {
-		  	progress.hide(false);
+		  	progress.setMod('hidden', '');
 		}
     };
 }
