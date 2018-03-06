@@ -3,18 +3,20 @@
 <head>
 	<title>Progress Bar</title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<script type="text/javascript" src="script.js"></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 	<div id="wrapper">
-		<div class="section">
+		<div class="canvas-section section">
 			<svg>
 				<path id="progress" fill="none" stroke="#446688" stroke-width="10" />
 		  	</svg>
 		</div>
 
-		<div class="section">
+	<!--
+		<div class="controls-section section">
 			<div class="input-wrap">
 				<input type="text" id="percent">
 				<label for="percent">Value</label>
@@ -34,6 +36,38 @@
 				<label for="hide-switch">Hide</label>
 			</div>
 		</div>
+	-->
+
+		<table>
+			<tr>
+				<td>
+					<input type="text" id="percent">
+				</td>
+				<td>
+					<label for="percent">Value</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="switch-border" id="animate-switch" enabled="false">
+						<div class="switch-slider"></div>
+					</div>
+				</td>
+				<td>
+					<label for="animate-switch">Animate</label>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="switch-border" id="hide-switch" enabled="false">
+						<div class="switch-slider"></div>
+					</div>
+				</td>
+				<td>
+					<label for="hide-switch">Hide</label>
+				</td>
+			</tr>
+		</table>
 	</div>
 </body>
 </html>

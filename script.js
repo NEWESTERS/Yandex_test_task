@@ -41,7 +41,7 @@ function animatedDraw( val ) {
 	// в то время как timePassed идёт от 0 до 2000
 	// left принимает значения от 0 до 400px
 	function draw( timePassed ) {
-	  	var arc = describeArc(90, 90, 70, 0, timePassed / 5);
+	  	var arc = describeArc(200, 200, 150, 0, timePassed / 5);
 	  	document.getElementById("progress").setAttribute("d", arc);
 	}
 }
@@ -101,11 +101,6 @@ window.onload = function ( ) {
 		  	progress.hide(false);
 		}
     };
-
-    var switcher = document.getElementById('switch');
-    switcher.onclick = function() {
-    	switchOnclick(this);
-    }
 }
 
 function switchOnclick (switcher) {
