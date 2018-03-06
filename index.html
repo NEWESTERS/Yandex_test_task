@@ -9,18 +9,20 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<!-- Main page container -->
 	<div id="wrapper">
-		
+		<!-- Section containing progress bar itself -->
 		<div class="canvas-section section">
 			<svg viewBox="0 0 120 120" version="1.1" xmlns="http://www.w3.org/2000/svg">
   				<circle id="progress" cx="60" cy="60" r="50"/>
 			</svg>
 		</div>
-
+		<!-- Section with all progress bar controls -->
 		<div class="section controls-section">
 			<table>
 				<tr>
 					<td>
+						<!-- Field setting progress bar value -->
 						<input type="text" id="percent">
 					</td>
 					<td>
@@ -29,6 +31,7 @@
 				</tr>
 				<tr>
 					<td>
+						<!-- Switch toggling progress bar animated mode -->
 						<div class="switch-border" id="animate-switch" enabled="true">
 							<div class="switch-slider"></div>
 						</div>
@@ -39,6 +42,7 @@
 				</tr>
 				<tr>
 					<td>
+						<!-- Switch toggling progress bar hidden mode -->
 						<div class="switch-border" id="hide-switch" enabled="false">
 							<div class="switch-slider"></div>
 						</div>
