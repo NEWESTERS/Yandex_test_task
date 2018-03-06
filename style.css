@@ -86,8 +86,8 @@ svg {
 
 /* Switch */
 .switch-border {
-	width: 80px;
-	height: 40px;
+	width: 80px !important;
+	height: 40px !important;
 	background-color: #333333;
 	border-radius: 40px;
 	border: solid 2px #333333;
@@ -121,6 +121,17 @@ table {
 
 td {
 	padding: 5px;
+}
+
+circle {
+	stroke-dasharray: 550 0;
+  	animation: dasharray 5s infinite alternate;
+}
+
+@keyframes dasharray {
+  100% {
+    stroke-dasharray: 0 500;
+  }
 }
 
 

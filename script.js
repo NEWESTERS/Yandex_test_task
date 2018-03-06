@@ -21,14 +21,14 @@ function describeArc( x, y, radius, startAngle, endAngle ) {
     return d;       
 }
 
-function animatedDraw( val ) {
+function animatedDraw( begin, end ) {
 	var start = Date.now(); // сохранить время начала
 
 	var timer = setInterval(function() {
 	  	// вычислить сколько времени прошло с начала анимации
-		var timePassed = Date.now() - start;
+		var timePassed =  Date.now() - start;
 
-	 	if (timePassed > val * 5) {
+	 	if (timePassed > end * 5) {
 	    	clearInterval(timer); // конец через 2 секунды
 	    	return;
 	  	}
@@ -46,10 +46,16 @@ function animatedDraw( val ) {
 	}
 }
 
+function draw( degree ) {
+	  	var arc = describeArc(200, 200, 150, 0, degree);
+	  	document.getElementById("progress").setAttribute("d", arc);
+	}
+
 function Progress ( link ) {
 	var element = document.getElementById(link);
 
 	this.setValue = function ( value ) {
+		this.prev_value = this.value
 		this.value = value;
 		this.updateProgress();
 	};
@@ -60,7 +66,9 @@ function Progress ( link ) {
 
 	this.updateProgress = function ( ) {
 		var val = 360 * (this.value / 100)
-		animatedDraw(val);
+		var prev_val = 360 * (this.prev_value / 100)
+		//animatedDraw(prev_val, val);
+		draw(val);
 	};
 
 	this.hide = function ( is_hide ) {
