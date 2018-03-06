@@ -11,12 +11,20 @@
 	#wrapper {
 		flex-direction: row;
 	}
+
+	.section{
+		width: 50%;
+	}
 }
 
 
 @media all and (orientation: portrait) {
 	#wrapper {
 		flex-direction: column;
+	}
+
+	.section {
+		height: 50%;
 	}
 }
 
@@ -51,10 +59,10 @@ input, label {
 }
 
 input[type = "text"] {
-	font-size: 40px;
+	font-size: 25px;
 	text-align: center;
-	height: 60px;
-	width: 100px;
+	height: 40px;
+	width: 80px;
 	border-radius: 40px;
 	border: solid 2px #000000;
 }
@@ -78,8 +86,8 @@ svg {
 
 /* Switch */
 .switch-border {
-	width: 100px;
-	height: 60px;
+	width: 80px;
+	height: 40px;
 	background-color: #333333;
 	border-radius: 40px;
 	border: solid 2px #333333;
@@ -93,8 +101,8 @@ svg {
 }
 
 .switch-slider {
-	width: 60px;
-	height: 60px;
+	width: 40px;
+	height: 40px;
 	border-radius: 40px;
 	background-color: #999999;
 	animation: switch-slider 1s reverse ease;
